@@ -22,5 +22,5 @@ jobs:
 
       - name: rodar testes
         run: |
-          source venv/bin/active
+          source venv/bin/activate
           pytest
