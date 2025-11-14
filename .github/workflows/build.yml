@@ -1,0 +1,26 @@
+name: avaliação de mds
+
+on: [push, pull_request]
+
+jobs:
+  fazer_a_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+
+      - name: instalar dependencias
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: rodar testes
+        run: |
+          source venv/bin/active
+          pytest
